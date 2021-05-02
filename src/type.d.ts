@@ -15,7 +15,7 @@ type CampaignState = {
 
 type CampaignAction = {
   type: string;
-  campaign: ICampaign;
+  campaign?: ICampaign;
 };
 type CampaignsAction = {
   type: string;

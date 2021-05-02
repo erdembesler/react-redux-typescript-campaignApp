@@ -1,31 +1,26 @@
 import * as React from "react";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getCampaigns } from "../store/actionCreators/campaignActions";
+import { getCampaigns as listCampaigns } from "../store/actionCreators/campaignActions";
 import { Dispatch } from "redux";
 
 const CampaignDetail: React.FC = () => {
   const dispatch: Dispatch<any> = useDispatch();
 
-  // const overviewState = React.useCallback(() => dispatch(getOverview()), [
-  //   dispatch,
-  // ]);
   const campaigns: ICampaign[] = useSelector(
-    (state: CampaignState) => state.campaigns,
+    (state: any) => state.campaigns,
     shallowEqual
   );
-  //   const campaigns: readonly ICampaign[] = useSelector(
-  //     (state: CampaignState) => state.campaigns,
-  //     shallowEqual
-  //   );
 
   useEffect(() => {
-    dispatch(getCampaigns());
+    debugger;
+    dispatch(listCampaigns());
   }, [dispatch]);
+
   return (
     <div>
       <div>campaign detail</div>
-      {campaigns
+      {campaigns.length >= 1
         ? campaigns.map((campaign: ICampaign) => <div>{campaign.name}</div>)
         : null}
     </div>

@@ -6,8 +6,9 @@ const initialState: CampaignState = {
 
 export const campaignReducer = (
   state: CampaignState = initialState || [],
-  action: CampaignAction
+  action: any
 ): CampaignState => {
+  debugger;
   switch (action.type) {
     case actionTypes.ADD_CAMPAIGNS:
       const newCampaign: ICampaign = {
@@ -27,21 +28,21 @@ export const campaignReducer = (
         };
       }
     case actionTypes.GET_CAMPAIGNS:
-      return { campaigns: state.campaigns };
+      return { campaigns: action.campaigns };
   }
   return state;
 };
 
-export const getCampaignsReducer = (
-  state: CampaignState = initialState || [],
-  action: CampaignsAction
-): CampaignState => {
-  switch (action.type) {
-    case actionTypes.GET_CAMPAIGNS:
-      // const campaigns: CampaignState = {
-      //   campaigns: action.campaigns, //TODO: installs campaign yuklenırken handle edileceke
-      // };
-      return { ...state, campaigns: action.campaigns };
-  }
-  return state;
-};
+// export const getCampaignsReducer = (
+//   state: CampaignState = initialState || [],
+//   action: CampaignsAction
+// ): CampaignState => {
+//   switch (action.type) {
+//     case actionTypes.GET_CAMPAIGNS:
+//       // const campaigns: CampaignState = {
+//       //   campaigns: action.campaigns, //TODO: installs campaign yuklenırken handle edileceke
+//       // };
+//       return { ...state, campaigns: action.campaigns };
+//   }
+//   return state;
+// };
