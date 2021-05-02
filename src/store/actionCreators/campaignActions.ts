@@ -1,5 +1,6 @@
 import * as actionTypes from "../actionTypes/campaignActionTypes";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 export const addCampaign = (campaign: ICampaign) => {
   const action: CampaignAction = {
@@ -8,32 +9,37 @@ export const addCampaign = (campaign: ICampaign) => {
   };
   return (dispatch: CampaignDispatchType) => {
     //settimeout is used to simulate http request
-    setTimeout(() => {
-      dispatch(action);
-    }, 500);
+    dispatch(action);
   };
-  //getstate ile articles cekilecek
-  //localStorage.setItem("cart", JSON.stringify(getState().articles));
+  //TODO: local storage
 };
 
 export const getCampaigns = () => async () => {
-  const temp = localStorage.getItem("articles");
+  const temp = localStorage.getItem("campaigns");
   let campaigns: ICampaign[] = [];
   if (temp) {
     campaigns = JSON.parse(temp);
   } else {
-    campaigns = await axios.get(
-      "http://5c3db915a9d04f0014a98a79.mockapi.io/campaigns"
-    );
+    campaigns = await axios
+      .get("http://5c3db915a9d04f0014a98a79.mockapi.io/campaigns")
+      .then((res) => res.data);
   }
+  // let addedCampaigns: CampaignState ;
+  // let campaign: ICampaign = { id: "", name: "",installs:[] };
+  // const action1: CampaignAction = {
+  //   type: actionTypes.GET_ADDED_CAMPAIGNS,
+  //   campaign,
+  // };
+  // addedCampaigns = (dispatch: CampaignDispatchType) => {
+  //   dispatch(action1);
+  // }
 
-  const action: CampaignsAction = {
+  const action2: CampaignsAction = {
     type: actionTypes.GET_CAMPAIGNS,
     campaigns,
   };
   return (dispatch: CampaignsDispatchType) => {
-    dispatch(action);
+    dispatch(action2);
   };
-  //getstate ile articles cekilecek
-  //localStorage.setItem("cart", JSON.stringify(getState().articles));
+  //TODO: local storage
 };

@@ -13,10 +13,9 @@ export const campaignReducer = (
       const newCampaign: ICampaign = {
         id: Math.random().toString(), // not really unique
         name: action.campaign.name,
-        installs: action.campaign.installs, //TODO: installs campaign yuklenırken handle edileceke
+        installs: [], //TODO: installs campaign yuklenırken handle edileceke
       };
-      debugger;
-      if (state.campaigns) {
+      if (state.campaigns.length >= 1) {
         return {
           ...state,
           campaigns: [...state.campaigns, newCampaign],
@@ -27,6 +26,8 @@ export const campaignReducer = (
           campaigns: [newCampaign],
         };
       }
+    case actionTypes.GET_CAMPAIGNS:
+      return { campaigns: state.campaigns };
   }
   return state;
 };
@@ -37,10 +38,10 @@ export const getCampaignsReducer = (
 ): CampaignState => {
   switch (action.type) {
     case actionTypes.GET_CAMPAIGNS:
-      const campaigns: CampaignState = {
-        campaigns: action.campaigns, //TODO: installs campaign yuklenırken handle edileceke
-      };
-      return campaigns;
+      // const campaigns: CampaignState = {
+      //   campaigns: action.campaigns, //TODO: installs campaign yuklenırken handle edileceke
+      // };
+      return { ...state, campaigns: action.campaigns };
   }
   return state;
 };

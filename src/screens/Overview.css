@@ -1,0 +1,11 @@
+.line-chart-div {
+  display: inline-block;
+  min-width: 600px;
+}
+.wrapper {
+  padding: 20px;
+  margin: 10px;
+}
+.line-chart {
+  width: 99%;
+}

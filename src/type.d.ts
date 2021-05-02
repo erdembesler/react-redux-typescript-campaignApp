@@ -5,7 +5,7 @@ interface IInstall {
 
 interface ICampaign {
   id: string;
-  name: number;
+  name: string;
   installs: IInstall[];
 }
 

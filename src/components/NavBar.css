@@ -1,0 +1,7 @@
+.root {
+  flexgrow: 1;
+}
+
+.title {
+  flexgrow: 0.1;
+}
