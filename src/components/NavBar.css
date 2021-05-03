@@ -1,7 +1,18 @@
-.root {
-  flexgrow: 1;
+.wrapper {
+  display: flex;
+  margin: 10px;
 }
 
-.title {
-  flexgrow: 0.1;
+.logo-div {
+  width: 20%;
+}
+.logo {
+  max-width: 60px;
+}
+.buttons-div {
+}
+
+.toolbar {
+  max-height: 60px;
+  margin-bottom: 20px;
 }

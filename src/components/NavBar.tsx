@@ -1,6 +1,7 @@
-import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
+import { Button, AppBar, Toolbar } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import "./NavBar.css";
+import sundayLogo from "../assets/sundayGames.png";
 
 const NavBar: React.FC = () => {
   const history = useHistory();
@@ -8,34 +9,37 @@ const NavBar: React.FC = () => {
   return (
     <div className={"root"}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={"title"}>
-            Sunday-Test-Task
-          </Typography>
-          <Button
-            onClick={() => {
-              history.push("/");
-            }}
-            color="inherit"
-          >
-            Overview
-          </Button>
-          <Button
-            onClick={() => {
-              history.push("/campaignDetail");
-            }}
-            color="inherit"
-          >
-            Campaigns
-          </Button>
-          <Button
-            onClick={() => {
-              history.push("/createCampaign");
-            }}
-            color="inherit"
-          >
-            Create campaign
-          </Button>
+        <Toolbar className="toolbar">
+          <div className="wrapper">
+            {/* <div className="logo-div">
+              
+            </div> */}
+            <img className="logo" src={sundayLogo} alt="sundayLogo" />
+            <Button
+              onClick={() => {
+                history.push("/");
+              }}
+              color="inherit"
+            >
+              Overview
+            </Button>
+            <Button
+              onClick={() => {
+                history.push("/campaignDetail");
+              }}
+              color="inherit"
+            >
+              Campaigns
+            </Button>
+            <Button
+              onClick={() => {
+                history.push("/createCampaign");
+              }}
+              color="inherit"
+            >
+              Create campaign
+            </Button>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

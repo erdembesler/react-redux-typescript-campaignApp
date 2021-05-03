@@ -2,6 +2,7 @@ import * as React from "react";
 import { addCampaign } from "../store/actionCreators/campaignActions";
 import { useDispatch } from "react-redux";
 import { Button, TextField } from "@material-ui/core";
+
 import "./CreateCampaign.css";
 
 import { Dispatch } from "redux";
@@ -12,6 +13,7 @@ const CreateCampaign: React.FC = () => {
     (campaign: ICampaign) => dispatch(addCampaign(campaign)),
     [dispatch]
   );
+  //TODO: installs will be given by a function
   const [campaign, setCampaign] = React.useState<ICampaign | {}>({
     id: Math.random().toString(),
     installs: [
@@ -41,7 +43,24 @@ const CreateCampaign: React.FC = () => {
   const addNewCampaign = (e: React.FormEvent) => {
     debugger;
     e.preventDefault();
+    setCampaign({
+      ...campaign,
+      id: Math.random().toString(),
+      installs: [
+        { day: "monday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "tuesday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "wednesday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "thursday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "friday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "saturday", value: Math.floor(Math.random() * 80) + 10 },
+        { day: "sunday", value: Math.floor(Math.random() * 80) + 10 },
+      ],
+    });
     saveCampaign(campaign as ICampaign);
+    setCampaign({
+      ...campaign,
+      name: "",
+    });
   };
   return (
     <form onSubmit={addNewCampaign}>
@@ -50,6 +69,7 @@ const CreateCampaign: React.FC = () => {
           <TextField
             required
             id="name"
+            value={(campaign as ICampaign).name || ""}
             className="input"
             onChange={(e) => handleCampaignData(e as any)}
             label="Name"

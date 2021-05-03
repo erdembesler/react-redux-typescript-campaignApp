@@ -1,7 +1,5 @@
 import * as React from "react";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { getOverview } from "../store/actionCreators/overviewActions";
+import { useEffect } from "react";
 import axios from "axios";
 import "./Overview.css";
 import {
@@ -12,8 +10,6 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
-
-import { Dispatch } from "redux";
 
 const OverviewCampaign: React.FC = () => {
   const [overview, setOverview] = React.useState<IOverview>();
@@ -37,7 +33,6 @@ const OverviewCampaign: React.FC = () => {
       {overview ? (
         <div className="wrapper">
           <div className="line-chart-div">
-            {" "}
             <LineChart
               className="line-chart"
               width={600}
@@ -53,7 +48,6 @@ const OverviewCampaign: React.FC = () => {
             </LineChart>
           </div>
           <div className="line-chart-div">
-            {" "}
             <LineChart
               className="line-chart"
               width={600}

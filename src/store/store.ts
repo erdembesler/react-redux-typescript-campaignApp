@@ -1,26 +1,17 @@
-import { createStore, combineReducers, applyMiddleware, Store } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import {
-  // getCampaignsReducer,
-  campaignReducer,
-} from "../store/reducers/campaignReducers";
-import { getOverviewReducer } from "../store/reducers/overviewReducers";
+import { campaignReducer as reducer } from "../store/reducers/campaignReducers";
 
 const temp = localStorage.getItem("campaigns");
 const persistedState = temp ? JSON.parse(temp) : {};
 
-// const reducer = combineReducers({
-//   getOverview: getOverviewReducer,
-//   // getCampaigns: getCampaignsReducer,
-//   campaign: campaignReducer,
-// });
 const INITIAL_STATE = {
   campaigns: persistedState,
 };
 
 export default createStore(
-  campaignReducer,
+  reducer,
   INITIAL_STATE,
   composeWithDevTools(applyMiddleware(thunk))
 );

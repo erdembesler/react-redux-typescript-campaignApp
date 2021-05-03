@@ -1,6 +1,5 @@
 import * as actionTypes from "../actionTypes/campaignActionTypes";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 
 export const addCampaign = (campaign: ICampaign) => (
@@ -11,7 +10,6 @@ export const addCampaign = (campaign: ICampaign) => (
     type: actionTypes.ADD_CAMPAIGNS,
     campaign,
   };
-  //settimeout is used to simulate http request
   dispatch(action);
   localStorage.setItem("campaigns", JSON.stringify(getState().campaigns));
 };

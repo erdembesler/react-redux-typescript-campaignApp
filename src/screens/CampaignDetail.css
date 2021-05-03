@@ -1,0 +1,21 @@
+.formControl {
+  margin: 10px;
+  min-width: 120px;
+}
+
+.campaign-select {
+  min-width: 300px;
+}
+
+.line-chart-div {
+  display: inline-block;
+  min-width: 600px;
+}
+.line-chart {
+  width: 99%;
+}
+
+.components-div {
+  margin: 20px;
+  display: flex;
+}
