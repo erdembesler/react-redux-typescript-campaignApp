@@ -1,0 +1,25 @@
+.input__container {
+  margin-bottom: 20px;
+}
+.inputfield__div {
+  margin-top: 20px;
+  padding: 10px 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.button__div {
+  display: flex;
+  padding: 0px 10px;
+  justify-content: center;
+}
+.addButton {
+  display: "block";
+
+  width: 200px;
+  margin-right: 10px;
+}
+.input {
+  width: 50%;
+}

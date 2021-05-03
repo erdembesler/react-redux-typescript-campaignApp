@@ -12,9 +12,9 @@ export const campaignReducer = (
   switch (action.type) {
     case actionTypes.ADD_CAMPAIGNS:
       const newCampaign: ICampaign = {
-        id: Math.random().toString(), // not really unique
+        id: action.campaign.id, // not really unique
         name: action.campaign.name,
-        installs: [], //TODO: installs campaign yuklenırken handle edileceke
+        installs: action.campaign.installs,
       };
       if (state.campaigns.length >= 1) {
         return {
@@ -32,17 +32,3 @@ export const campaignReducer = (
   }
   return state;
 };
-
-// export const getCampaignsReducer = (
-//   state: CampaignState = initialState || [],
-//   action: CampaignsAction
-// ): CampaignState => {
-//   switch (action.type) {
-//     case actionTypes.GET_CAMPAIGNS:
-//       // const campaigns: CampaignState = {
-//       //   campaigns: action.campaigns, //TODO: installs campaign yuklenırken handle edileceke
-//       // };
-//       return { ...state, campaigns: action.campaigns };
-//   }
-//   return state;
-// };
