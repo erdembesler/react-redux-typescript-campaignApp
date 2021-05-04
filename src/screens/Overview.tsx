@@ -13,7 +13,7 @@ const OverviewCampaign: React.FC = () => {
     // Create an scoped async function in the hook
     async function overviewFunction() {
       await axios
-        .get("http://5c3db915a9d04f0014a98a79.mockapi.io/overview")
+        .get("https://5c3db915a9d04f0014a98a79.mockapi.io/overview")
         .then((resp) => {
           setOverview(resp.data);
         });

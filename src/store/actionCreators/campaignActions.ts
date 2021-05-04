@@ -26,7 +26,7 @@ export const getCampaigns = () => {
     } else {
       try {
         campaigns = await axios
-          .get("http://5c3db915a9d04f0014a98a79.mockapi.io/campaigns")
+          .get("https://5c3db915a9d04f0014a98a79.mockapi.io/campaigns")
           .then((res) => res.data);
       } catch {}
     }
