@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import GraphItem from "../components/GraphItem";
+import { CircularProgress } from "@material-ui/core";
 
 import "./CampaignDetail.css";
 
@@ -17,6 +18,7 @@ const CampaignDetail: React.FC = () => {
     (state: any) => state.campaigns,
     shallowEqual
   );
+
   const [selectedCampaign, setSelectedCampaign] = React.useState<
     ICampaign | {} | undefined
   >(campaigns[0]);
@@ -29,29 +31,42 @@ const CampaignDetail: React.FC = () => {
     dispatch(listCampaigns());
   }, [dispatch]);
 
+  useEffect(() => {
+    setSelectedCampaign(campaigns[0]);
+  }, [campaigns]);
   return (
     <div>
       <FormControl className="form-control">
         <div className="components-div">
           <div>
-            <Select
-              className="campaign-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={(selectedCampaign as ICampaign).id}
-              onChange={(e) => {
-                handleChange(e.target.value);
-              }}
-              label="Campaigns"
-            >
-              {campaigns.length >= 1
-                ? campaigns.map((campaign: ICampaign, index) => (
-                    <MenuItem key={campaign.id} value={campaign.id}>
-                      {campaign.name}
-                    </MenuItem>
-                  ))
-                : null}
-            </Select>
+            {selectedCampaign ? (
+              <Select
+                className="campaign-select"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={
+                  selectedCampaign
+                    ? (selectedCampaign as ICampaign).id
+                    : campaigns[0].id
+                }
+                onChange={(e) => {
+                  handleChange(e.target.value);
+                }}
+                label="Campaigns"
+              >
+                {campaigns.length >= 1
+                  ? campaigns.map((campaign: ICampaign, index) => (
+                      <MenuItem key={campaign.id} value={campaign.id}>
+                        {campaign.name}
+                      </MenuItem>
+                    ))
+                  : null}
+              </Select>
+            ) : (
+              <div>
+                <CircularProgress />
+              </div>
+            )}
           </div>
 
           <div className="line-chart-div">
