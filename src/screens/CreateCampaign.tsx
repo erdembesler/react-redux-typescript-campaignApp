@@ -60,7 +60,6 @@ const CreateCampaign: React.FC = () => {
   };
 
   const addNewCampaign = (e: React.FormEvent) => {
-    debugger;
     e.preventDefault();
     setCampaign(campaign);
     saveCampaign(campaign as ICampaign);

@@ -2,15 +2,9 @@ import * as React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "./Overview.css";
-import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
+
 import { CircularProgress } from "@material-ui/core";
+import GraphItem from "../components/GraphItem";
 
 const OverviewCampaign: React.FC = () => {
   const [overview, setOverview] = React.useState<IOverview>();
@@ -35,38 +29,13 @@ const OverviewCampaign: React.FC = () => {
             <div>
               <h2>Installs</h2>
             </div>
-            <LineChart
-              className="line-chart"
-              width={600}
-              height={300}
-              data={overview!.installs}
-              margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-            >
-              <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <XAxis dataKey="day" />
-              <YAxis dataKey="value" />
-              <Tooltip />
-            </LineChart>
+            <GraphItem data={overview!.installs} />
           </div>
           <div className="line-chart-div">
             <div>
               <h2>Revenue</h2>
             </div>
-
-            <LineChart
-              className="line-chart"
-              width={600}
-              height={300}
-              data={overview!.revenue}
-              margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-            >
-              <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <XAxis dataKey="day" />
-              <YAxis dataKey="value" />
-              <Tooltip />
-            </LineChart>
+            <GraphItem data={overview!.revenue} />
           </div>
         </div>
       ) : (

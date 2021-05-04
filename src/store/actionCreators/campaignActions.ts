@@ -15,12 +15,10 @@ export const addCampaign = (campaign: ICampaign) => (
 };
 
 export const getCampaigns = () => {
-  debugger;
   return async (
     dispatch: Dispatch<CampaignsAction>,
     getState: () => CampaignState
   ) => {
-    debugger;
     const temp = localStorage.getItem("campaigns");
     let campaigns: ICampaign[] = [];
     if (temp) {

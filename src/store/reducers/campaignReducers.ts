@@ -8,7 +8,6 @@ export const campaignReducer = (
   state: CampaignState = initialState || [],
   action: any
 ): CampaignState => {
-  debugger;
   switch (action.type) {
     case actionTypes.ADD_CAMPAIGNS:
       const newCampaign: ICampaign = {

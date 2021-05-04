@@ -6,14 +6,7 @@ import { Dispatch } from "redux";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
+import GraphItem from "../components/GraphItem";
 
 import "./CampaignDetail.css";
 
@@ -29,7 +22,6 @@ const CampaignDetail: React.FC = () => {
   >(campaigns[0]);
 
   const handleChange = (id: any) => {
-    debugger;
     setSelectedCampaign(campaigns ? campaigns.find((x) => x.id === id) : {});
   };
 
@@ -64,19 +56,9 @@ const CampaignDetail: React.FC = () => {
 
           <div className="line-chart-div">
             {selectedCampaign ? (
-              <LineChart
-                className="line-chart"
-                width={600}
-                height={300}
-                data={(selectedCampaign as ICampaign).installs}
-                margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-              >
-                <Line type="monotone" dataKey="value" stroke="#8884d8" />
-                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                <XAxis dataKey="day" />
-                <YAxis dataKey="value" />
-                <Tooltip />
-              </LineChart>
+              <GraphItem
+                data={(selectedCampaign as ICampaign).installs as any}
+              />
             ) : null}
           </div>
         </div>
