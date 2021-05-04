@@ -10,6 +10,7 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
+import { CircularProgress } from "@material-ui/core";
 
 const OverviewCampaign: React.FC = () => {
   const [overview, setOverview] = React.useState<IOverview>();
@@ -28,11 +29,12 @@ const OverviewCampaign: React.FC = () => {
 
   return (
     <div>
-      <div>overview</div>
-
       {overview ? (
         <div className="wrapper">
           <div className="line-chart-div">
+            <div>
+              <h2>Installs</h2>
+            </div>
             <LineChart
               className="line-chart"
               width={600}
@@ -48,6 +50,10 @@ const OverviewCampaign: React.FC = () => {
             </LineChart>
           </div>
           <div className="line-chart-div">
+            <div>
+              <h2>Revenue</h2>
+            </div>
+
             <LineChart
               className="line-chart"
               width={600}
@@ -64,7 +70,9 @@ const OverviewCampaign: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div> loading..</div>
+        <div className="circ-progress">
+          <CircularProgress />
+        </div>
       )}
     </div>
   );

@@ -58,8 +58,10 @@ const CampaignDetail: React.FC = () => {
               label="Campaigns"
             >
               {campaigns.length >= 1
-                ? campaigns.map((campaign: ICampaign) => (
-                    <MenuItem value={campaign.id}>{campaign.name}</MenuItem>
+                ? campaigns.map((campaign: ICampaign, index) => (
+                    <MenuItem key={index} value={campaign.id}>
+                      {campaign.name}
+                    </MenuItem>
                   ))
                 : null}
             </Select>

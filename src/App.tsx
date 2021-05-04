@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import CampaignDetail from "./screens/CampaignDetail";
 import Overview from "./screens/Overview";
 import CreateCampaign from "./screens/CreateCampaign";
@@ -23,8 +28,9 @@ function App() {
             path="/createCampaign"
             component={CreateCampaign}
           ></Route>
-          <Route></Route>
-          <Route></Route>
+          <Route>
+            <Redirect to="/" />
+          </Route>
         </Switch>
       </main>
     </Router>

@@ -1,6 +1,7 @@
 .line-chart-div {
   display: inline-block;
   min-width: 600px;
+  text-align: center;
 }
 .wrapper {
   padding: 20px;
@@ -8,4 +9,9 @@
 }
 .line-chart {
   width: 99%;
+}
+.circ-progress {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
