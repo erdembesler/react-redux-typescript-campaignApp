@@ -1,10 +1,13 @@
 .formControl {
   margin: 10px;
   min-width: 120px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .campaign-select {
   min-width: 300px;
+  margin-right: 50px;
 }
 
 .line-chart-div {

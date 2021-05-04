@@ -3,19 +3,17 @@ import { useHistory } from "react-router-dom";
 import "./NavBar.css";
 import sundayLogo from "../assets/sundayGames.png";
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 
 const NavBar: React.FC = () => {
   const history = useHistory();
+  const location = useLocation();
 
-  const [overviewVar, setOverviewVar] = React.useState<
-    "outlined" | "text" | "contained" | undefined
-  >("outlined");
-  const [campaignsVar, setCampaignsVar] = React.useState<
-    "outlined" | "text" | "contained" | undefined
-  >("text");
-  const [createVar, setCreateVar] = React.useState<
-    "outlined" | "text" | "contained" | undefined
-  >("text");
+  const overviewVar = location.pathname === "/" ? "outlined" : "text";
+  const campaignsVar =
+    location.pathname === "/campaignDetail" ? "outlined" : "text";
+  const createVar =
+    location.pathname === "/createCampaign" ? "outlined" : "text";
 
   return (
     <div className={"root"}>
@@ -25,36 +23,30 @@ const NavBar: React.FC = () => {
 
           <div className="wrapper">
             <Button
+              style={{ width: "160px" }}
               variant={overviewVar}
               onClick={() => {
                 history.push("/");
-                setOverviewVar("outlined");
-                setCampaignsVar("text");
-                setCreateVar("text");
               }}
               color="inherit"
             >
               Overview
             </Button>
             <Button
+              style={{ width: "160px" }}
               variant={campaignsVar}
               onClick={() => {
                 history.push("/campaignDetail");
-                setOverviewVar("text");
-                setCampaignsVar("outlined");
-                setCreateVar("text");
               }}
               color="inherit"
             >
               Campaigns
             </Button>
             <Button
+              style={{ width: "180px" }}
               variant={createVar}
               onClick={() => {
                 history.push("/createCampaign");
-                setOverviewVar("text");
-                setCampaignsVar("text");
-                setCreateVar("outlined");
               }}
               color="inherit"
             >
