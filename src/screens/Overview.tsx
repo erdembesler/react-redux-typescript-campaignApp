@@ -9,8 +9,8 @@ import GraphItem from "../components/GraphItem";
 const OverviewCampaign: React.FC = () => {
   const [overview, setOverview] = React.useState<IOverview>();
 
+  //Get overview data from api
   useEffect(() => {
-    // Create an scoped async function in the hook
     async function overviewFunction() {
       await axios
         .get("https://5c3db915a9d04f0014a98a79.mockapi.io/overview")

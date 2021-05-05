@@ -23,16 +23,19 @@ const CampaignDetail: React.FC = () => {
     ICampaign | undefined
   >(campaigns[0]);
 
+  //handling selected change
   const handleChange = (id: any) => {
     setSelectedCampaign(
       (campaigns ? campaigns.find((x) => x.id === id) : {}) as ICampaign
     );
   };
 
+  //get campaigns
   useEffect(() => {
     dispatch(listCampaigns());
   }, [dispatch]);
 
+  //set default campaign to be show on page opening
   useEffect(() => {
     setSelectedCampaign(campaigns[0]);
   }, [campaigns]);

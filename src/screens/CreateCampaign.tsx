@@ -16,6 +16,7 @@ const CreateCampaign: React.FC = () => {
     [dispatch]
   );
 
+  //create random install values for the campaign
   const installsCreator = () => {
     return [
       { day: "monday", value: Math.floor(Math.random() * 80) + 10 },
@@ -27,19 +28,22 @@ const CreateCampaign: React.FC = () => {
       { day: "sunday", value: Math.floor(Math.random() * 80) + 10 },
     ];
   };
-  //TODO: installs will be given by a function
+
   const [campaign, setCampaign] = React.useState<ICampaign>({
     id: Math.random().toString(),
     installs: installsCreator(),
   } as ICampaign);
+
   const [disabled, setDisabled] = React.useState<boolean>(true);
 
   const [openAlert, setOpenAlert] = React.useState<boolean>(false);
 
+  // Alert will be triggered after campaign creation
   function Alert(props: any) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
 
+  //Triggered after closing alert
   const handleCloseAlert = (event: any, reason: any) => {
     if (reason === "clickaway") {
       return;
@@ -47,6 +51,7 @@ const CreateCampaign: React.FC = () => {
     setOpenAlert(false);
   };
 
+  //triggered after onChange of name textField
   const handleCampaignData = (e: React.FormEvent<HTMLInputElement>) => {
     setCampaign({
       ...campaign,
@@ -59,6 +64,7 @@ const CreateCampaign: React.FC = () => {
     }
   };
 
+  //triggered after create campaign button onClick
   const addNewCampaign = (e: React.FormEvent) => {
     e.preventDefault();
     setCampaign(campaign);
@@ -74,6 +80,7 @@ const CreateCampaign: React.FC = () => {
     });
     setDisabled(true);
   };
+
   return (
     <form onSubmit={addNewCampaign}>
       <div className="input__container">
