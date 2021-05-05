@@ -1,9 +1,10 @@
 .line-chart-div {
-  display: inline-block;
   min-width: 600px;
   text-align: center;
 }
 .wrapper {
+  display: flex;
+  justify-content: center;
   padding: 20px;
   margin: 10px;
 }

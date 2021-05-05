@@ -23,7 +23,7 @@ const CampaignDetail: React.FC = () => {
     ICampaign | undefined
   >(campaigns[0]);
 
-  //handling selected change
+  //handling selectedCampaign change
   const handleChange = (id: any) => {
     setSelectedCampaign(
       (campaigns ? campaigns.find((x) => x.id === id) : {}) as ICampaign
