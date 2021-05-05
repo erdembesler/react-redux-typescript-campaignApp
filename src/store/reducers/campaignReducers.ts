@@ -6,15 +6,22 @@ const initialState: CampaignState = {
 
 export const campaignReducer = (
   state: CampaignState = initialState || [],
-  action: any
+  action: unknown
 ): CampaignState => {
-  switch (action.type) {
+  let newCampaign: ICampaign = { id: "", name: "", installs: [] };
+  if (
+    (action as CampaignAction | CampaignsAction).type ===
+    actionTypes.ADD_CAMPAIGNS
+  ) {
+    newCampaign = {
+      id: ((action as CampaignAction).campaign as ICampaign).id,
+      name: ((action as CampaignAction).campaign as ICampaign).name,
+      installs: ((action as CampaignAction).campaign as ICampaign).installs,
+    };
+  }
+
+  switch ((action as CampaignAction | CampaignsAction).type) {
     case actionTypes.ADD_CAMPAIGNS:
-      const newCampaign: ICampaign = {
-        id: action.campaign.id, // not really unique
-        name: action.campaign.name,
-        installs: action.campaign.installs,
-      };
       if (state.campaigns.length >= 1) {
         return {
           ...state,
@@ -27,7 +34,7 @@ export const campaignReducer = (
         };
       }
     case actionTypes.GET_CAMPAIGNS:
-      return { campaigns: action.campaigns };
+      return { campaigns: (action as CampaignsAction).campaigns };
   }
   return state;
 };

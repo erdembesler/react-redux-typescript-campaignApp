@@ -28,10 +28,10 @@ const CreateCampaign: React.FC = () => {
     ];
   };
   //TODO: installs will be given by a function
-  const [campaign, setCampaign] = React.useState<ICampaign | {}>({
+  const [campaign, setCampaign] = React.useState<ICampaign>({
     id: Math.random().toString(),
     installs: installsCreator(),
-  });
+  } as ICampaign);
   const [disabled, setDisabled] = React.useState<boolean>(true);
 
   const [openAlert, setOpenAlert] = React.useState<boolean>(false);
@@ -65,6 +65,7 @@ const CreateCampaign: React.FC = () => {
     saveCampaign(campaign as ICampaign);
     setOpenAlert(true);
 
+    // id is not really unique, but most probably it will (for a couple of campaigns added for sure :))
     setCampaign({
       ...campaign,
       name: "",

@@ -11,7 +11,7 @@ import Overview from "./screens/Overview";
 import CreateCampaign from "./screens/CreateCampaign";
 import NavBar from "./components/NavBar";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <NavBar />
@@ -35,6 +35,6 @@ function App() {
       </main>
     </Router>
   );
-}
+};
 
 export default App;

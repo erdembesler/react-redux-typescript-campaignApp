@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import {
   LineChart,
   Line,
@@ -7,7 +7,7 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
-const GraphItem: FC<any> = ({ data }) => {
+const GraphItem: FC<any> = ({ data }: any) => {
   return (
     <LineChart
       className="line-chart"

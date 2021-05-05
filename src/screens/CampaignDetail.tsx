@@ -20,11 +20,13 @@ const CampaignDetail: React.FC = () => {
   );
 
   const [selectedCampaign, setSelectedCampaign] = React.useState<
-    ICampaign | {} | undefined
+    ICampaign | undefined
   >(campaigns[0]);
 
   const handleChange = (id: any) => {
-    setSelectedCampaign(campaigns ? campaigns.find((x) => x.id === id) : {});
+    setSelectedCampaign(
+      (campaigns ? campaigns.find((x) => x.id === id) : {}) as ICampaign
+    );
   };
 
   useEffect(() => {
@@ -56,7 +58,7 @@ const CampaignDetail: React.FC = () => {
               >
                 {campaigns.length >= 1
                   ? campaigns.map((campaign: ICampaign, index) => (
-                      <MenuItem key={campaign.id} value={campaign.id}>
+                      <MenuItem key={index} value={campaign.id}>
                         {campaign.name}
                       </MenuItem>
                     ))
