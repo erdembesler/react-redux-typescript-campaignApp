@@ -37,11 +37,11 @@ export const getCampaigns = () => {
         console.log(error);
       }
     }
-    const action2: CampaignsAction = {
+    const action: CampaignsAction = {
       type: actionTypes.GET_CAMPAIGNS,
       campaigns,
     };
-    dispatch(action2);
+    dispatch(action);
 
     //set campaigns to local storage
     localStorage.setItem("campaigns", JSON.stringify(getState().campaigns));

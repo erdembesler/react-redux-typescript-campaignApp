@@ -83,8 +83,8 @@ const CreateCampaign: React.FC = () => {
 
   return (
     <form onSubmit={addNewCampaign}>
-      <div className="input__container">
-        <div className="inputfield__div">
+      <div className="input-container">
+        <div className="inputfield-div">
           <TextField
             required
             id="name"
@@ -97,10 +97,10 @@ const CreateCampaign: React.FC = () => {
         </div>
       </div>
 
-      <div className="button__div">
+      <div className="button-div">
         <Button
           disabled={disabled ? true : false}
-          className="addButton"
+          className="add-button"
           id="installs"
           variant="contained"
           color="primary"

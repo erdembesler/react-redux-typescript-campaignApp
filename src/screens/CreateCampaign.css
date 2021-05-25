@@ -1,7 +1,7 @@
-.input__container {
+.input-container {
   margin-bottom: 20px;
 }
-.inputfield__div {
+.inputfield-div {
   margin-top: 20px;
   padding: 10px 20px;
 
@@ -9,12 +9,12 @@
   justify-content: center;
 }
 
-.button__div {
+.button-div {
   display: flex;
   padding: 0px 10px;
   justify-content: center;
 }
-.addButton {
+.add-button {
   display: "block";
 
   width: 200px;

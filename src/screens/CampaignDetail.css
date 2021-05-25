@@ -1,4 +1,4 @@
-.formControl {
+.form-control {
   margin: 10px;
   min-width: 120px;
   display: flex;
@@ -8,6 +8,7 @@
 .campaign-select {
   min-width: 300px;
   margin-right: 50px;
+  margin-bottom: 20px;
 }
 
 .line-chart-div {
@@ -18,4 +19,6 @@
 .components-div {
   margin: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
