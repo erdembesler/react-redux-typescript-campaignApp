@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
     location.pathname === "/createCampaign" ? "outlined" : "text";
 
   return (
-    <div className={"root"}>
+    <div className="root-navbar">
       <AppBar position="static">
         <Toolbar className="toolbar">
           <img className="logo" src={sundayLogo} alt="sundayLogo" />

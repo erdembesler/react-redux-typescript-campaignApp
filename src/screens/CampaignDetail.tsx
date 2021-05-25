@@ -40,7 +40,7 @@ const CampaignDetail: React.FC = () => {
     setSelectedCampaign(campaigns[0]);
   }, [campaigns]);
   return (
-    <div>
+    <div className="root-campaigndetail">
       <FormControl className="form-control">
         <div className="components-div">
           <div>

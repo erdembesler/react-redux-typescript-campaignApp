@@ -82,7 +82,7 @@ const CreateCampaign: React.FC = () => {
   };
 
   return (
-    <form onSubmit={addNewCampaign}>
+    <form onSubmit={addNewCampaign} className="root-createcampaign">
       <div className="input-container">
         <div className="inputfield-div">
           <TextField

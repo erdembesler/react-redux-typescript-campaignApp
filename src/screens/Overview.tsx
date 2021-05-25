@@ -22,7 +22,7 @@ const OverviewCampaign: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="root-overview">
       {overview ? (
         <div className="wrapper">
           <div className="line-chart-div">

@@ -22,3 +22,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.root-campaigndetail {
+  margin-top: 90px;
+}
